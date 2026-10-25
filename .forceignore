@@ -1,0 +1,11 @@
+# Files the Salesforce CLI should not push, pull or deploy.
+package.xml
+
+# LWC configuration and tooling
+**/jsconfig.json
+**/.eslintrc.json
+**/__tests__/**
+
+# Local and OS files
+**/.DS_Store
+**/*.dup

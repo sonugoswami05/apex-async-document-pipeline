@@ -1,0 +1,87 @@
+<template>
+    <lightning-card title={cardTitle} icon-name="standard:document">
+        <div slot="actions">
+            <lightning-button-icon
+                icon-name="utility:refresh"
+                alternative-text="Refresh list"
+                title="Refresh list"
+                onclick={handleRefresh}
+                disabled={isSaving}
+            ></lightning-button-icon>
+        </div>
+
+        <div class="slds-is-relative slds-p-horizontal_medium" aria-busy={isSaving}>
+            <template lwc:if={isLoading}>
+                <div class="loading-area">
+                    <lightning-spinner alternative-text="Loading documents" size="small"></lightning-spinner>
+                </div>
+            </template>
+
+            <template lwc:if={error}>
+                <div class="slds-notify slds-notify_alert slds-alert_error slds-m-bottom_small" role="alert">
+                    <span class="slds-assistive-text">Error</span>
+                    <p>{error}</p>
+                </div>
+            </template>
+
+            <template lwc:if={hasRows}>
+                <div class="slds-grid slds-wrap slds-grid_vertical-align-end slds-gutters_x-small slds-m-bottom_small">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-m-bottom_x-small">
+                        <lightning-combobox
+                            name="overrideType"
+                            label="Override type"
+                            placeholder="Choose a document type"
+                            options={typeOptions}
+                            value={overrideType}
+                            onchange={handleTypeChange}
+                            field-level-help="Applies to every selected document."
+                        ></lightning-combobox>
+                    </div>
+                    <div class="slds-col slds-grow-none slds-m-bottom_x-small">
+                        <lightning-button
+                            label="Apply override"
+                            onclick={handleOverride}
+                            disabled={disableOverride}
+                        ></lightning-button>
+                    </div>
+                    <div class="slds-col slds-grow-none slds-m-bottom_x-small">
+                        <lightning-button
+                            variant="brand"
+                            label="Accept suggested type"
+                            onclick={handleAccept}
+                            disabled={disableAccept}
+                        ></lightning-button>
+                    </div>
+                </div>
+
+                <p class="slds-text-body_small slds-text-color_weak slds-m-bottom_x-small" aria-live="polite">
+                    {selectionLabel}
+                </p>
+
+                <div class="table-wrapper">
+                    <lightning-datatable
+                        key-field="intakeId"
+                        data={rows}
+                        columns={columns}
+                        selected-rows={selectedIds}
+                        onrowselection={handleRowSelection}
+                        column-widths-mode="auto"
+                    ></lightning-datatable>
+                </div>
+            </template>
+
+            <template lwc:if={showEmptyState}>
+                <div class="slds-text-align_center slds-p-vertical_large">
+                    <p class="slds-text-heading_small">Nothing to review</p>
+                    <p class="slds-text-body_regular slds-text-color_weak slds-m-top_x-small">
+                        Documents land here when the classifier is unsure or no checklist item matches.
+                    </p>
+                </div>
+            </template>
+
+            <template lwc:if={isSaving}>
+                <lightning-spinner alternative-text="Saving decisions" size="small"></lightning-spinner>
+            </template>
+        </div>
+    </lightning-card>
+</template>

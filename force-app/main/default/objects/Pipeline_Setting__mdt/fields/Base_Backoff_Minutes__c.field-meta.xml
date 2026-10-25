@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Base_Backoff_Minutes__c</fullName>
+    <description>Delay before the first retry. Each later retry doubles it, capped at 10 minutes.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Delay before the first retry. Each later retry doubles it, capped at 10 minutes.</inlineHelpText>
+    <label>Base Backoff Minutes</label>
+    <precision>2</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

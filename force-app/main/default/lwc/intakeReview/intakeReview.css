@@ -1,0 +1,9 @@
+.loading-area {
+    position: relative;
+    min-height: 6rem;
+}
+
+/* Keep wide tables inside the card on narrow screens instead of pushing the page sideways. */
+.table-wrapper {
+    overflow-x: auto;
+}

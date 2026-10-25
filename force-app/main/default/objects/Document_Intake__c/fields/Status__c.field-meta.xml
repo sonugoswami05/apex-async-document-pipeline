@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <description>Pipeline stage of this document.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Pipeline stage of this document.</inlineHelpText>
+    <label>Status</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Queued</fullName>
+                <default>false</default>
+                <label>Queued</label>
+            </value>
+            <value>
+                <fullName>Uploading</fullName>
+                <default>true</default>
+                <label>Uploading</label>
+            </value>
+            <value>
+                <fullName>Classifying</fullName>
+                <default>false</default>
+                <label>Classifying</label>
+            </value>
+            <value>
+                <fullName>Allocated</fullName>
+                <default>false</default>
+                <label>Allocated</label>
+            </value>
+            <value>
+                <fullName>Needs_Review</fullName>
+                <default>false</default>
+                <label>Needs Review</label>
+            </value>
+            <value>
+                <fullName>Failed</fullName>
+                <default>false</default>
+                <label>Failed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

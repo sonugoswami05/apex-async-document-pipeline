@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Error__c</fullName>
+    <description>Most recent failure, with the attempt number and exception type.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Most recent failure, with the attempt number and exception type.</inlineHelpText>
+    <label>Last Error</label>
+    <length>32768</length>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>
